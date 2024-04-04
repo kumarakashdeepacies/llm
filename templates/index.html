@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Acies LLM</title>
+    <style>
+        /* Style for User and Acies LLM text */
+        .user, .acies {
+            font-size: 1.0em;
+            font-weight: bold; /* Make text bold */
+            text-transform: uppercase; /* Capitalize text */
+        }
+
+        /* Style for the message */
+        .message {
+            font-size: 1.0em; /* Smaller size than default */
+            font-weight: bold; /* Make text bold */
+        }
+    </style>
+</head>
+<body>
+    <h1>Ask a question?</h1>
+    <form action="/chat" method="post">
+        <input type="text" name="message" placeholder="Enter your message here...">
+        <button type="submit">Send</button>
+    </form>
+    <div id="history">
+        {% for message, airesponse in response %}
+            <p><span class="user">User :</span> <span class="message">{{ message|safe }}</span></p>
+            <p><span class="acies">Acies LLM : </span> {{ airesponse|replace("\n", "<br>")|safe }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

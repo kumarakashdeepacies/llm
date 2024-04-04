@@ -1,25 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Acies LLM</title>
     <style>
-        /* Style for User and Acies LLM text */
-        .user, .acies {
-            font-size: 1.0em;
-            font-weight: bold; /* Make text bold */
-            text-transform: uppercase; /* Capitalize text */
-        }
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      /* Style for User and Acies LLM text */
+      .user,
+      .acies {
+        font-size: 1em;
+        font-weight: bold; /* Make text bold */
+        text-transform: uppercase; /* Capitalize text */
+        font-size: 26px;
+        color: #0042ffe6
+      }
 
-        /* Style for the message */
-        .message {
-            font-size: 1.0em; /* Smaller size than default */
-            font-weight: bold; /* Make text bold */
-        }
+      /* Style for the message */
+      .message {
+        font-size: 1em; /* Smaller size than default */
+        font-weight: bold; /* Make text bold */
+      }
+
+      .main {
+        width: 100vw;
+        display: flex;
+      }
+      .sidebar {
+        width: 20%;
+        background: gold;
+        height: fit-content;
+        min-height: 100vh;
+        position: fixed;
+      }
+      .sidebar .questions {
+        font-size: 20px;
+      }
+      .sidebar .questions p {
+        padding: 20px;
+      }
+
+      .body {
+        width: 80%;
+        background-color: grey;
+        height: fit-content;
+        min-height: 100vh;
+        transform: translateX(25%);
+      }
+      .body h1 {
+        padding: 20px;
+      }
+      .body .que {
+        padding: 45px 20px;
+        font-size: 22px;
+      }
+      .body .ans {
+        padding:0 20px 30px 20px;
+      }
+      form {
+        padding: 20px;
+        display: flex;
+      }
+      form input {
+        width: 80%;
+        padding: 20px;
+      }
+      form button {
+        width: 19%;
+        background: green;
+        font-size: 24px;
+      }
     </style>
-</head>
-<body>
-    <h1>Ask a question?</h1>
+  </head>
+  <body>
+    <div class="main">
+      <div class="sidebar">
+        <div class="questions">
+          <p>Demo Question</p>
+          <p>Demo Question</p>
+          <p>Demo Question</p>
+          <p>Demo Question</p>
+          <p>Demo Question</p>
+          <p>Demo Question</p>
+          <p>Demo Question</p>
+          <p>Demo Question</p>
+          <p>Demo Question</p>
+        </div>
+      </div>
+      <div class="body">
+        <h1>Ask a questions ?</h1>
+
+        <form action="/chat" method="post">
+          <input
+            type="text"
+            name="message"
+            placeholder="Enter your message here..."
+          />
+          <button type="submit">Send</button>
+        </form>
+
+        <div id="history">
+          {% for message, airesponse in response %}
+          <p class="que">
+            <span class="user">User :</span>
+            <span class="message">{{ message|safe }}</span>
+          </p>
+          <p class="ans">
+            <span class="acies">Acies LLM : </span> {{ airesponse|replace("\n",
+            "<br />")|safe }}
+          </p>
+          <hr>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- <h1>Ask a question?</h1>
     <form action="/chat" method="post">
         <input type="text" name="message" placeholder="Enter your message here...">
         <button type="submit">Send</button>
@@ -29,6 +127,6 @@
             <p><span class="user">User :</span> <span class="message">{{ message|safe }}</span></p>
             <p><span class="acies">Acies LLM : </span> {{ airesponse|replace("\n", "<br>")|safe }}</p>
         {% endfor %}
-    </div>
-</body>
+    </div> -->
+  </body>
 </html>

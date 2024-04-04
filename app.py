@@ -12,10 +12,10 @@ app = Flask(__name__)
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 client = openai.OpenAI()
-model = "gpt-4-turbo-preview"
+model = "gpt-4"
 
 assistant_id = "asst_qXK4TGu8TH7Al37hPC0WYZtP"
-thread_id = "thread_OY6sk5WHi45eV1B9FiRvGo5B"
+thread_id = "thread_V8YjCSWb44FwUtiXgyLB4Dg0"
 
 conversation_history = []
 

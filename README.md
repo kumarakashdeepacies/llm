@@ -2,9 +2,13 @@
 fine-tuning gpt on custome knowledge base
 
 Done  - api call -- 3.5 turbo and 4 successful 
-ERROR - response breaks in half leanth size issue (error with multiple call )
+ERROR - response breaks in half leanth size issue (error with multiple call)
 
 Done - Basic Frontend 
+  adding like and dislike button 
+  adding backend log file 
+  getting where the model fails 
+  
 
 
 In progress - Threading ( crntly all converation in one thread )

@@ -24,3 +24,20 @@ langchin introduction an play with more parameter
 future:
 verctor embedding 
 function calling 
+
+
+
+
+data  ::
+  kaggle 
+
+
+model : 
+  hugging face 
+
+
+generation :
+  google collb
+
+
+find alternative's for all ur googel product in mcirosoft
